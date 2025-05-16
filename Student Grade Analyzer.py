@@ -1,3 +1,8 @@
+import re
+
+def is_valid_name(name):
+    return bool(re.match(r"^[A-Za-zÑñ' -]+$", name))
+
 def analyze_scores(students_data):
     lowest_score = min(students_data, key=lambda x: x[1])
     highest_score = max(students_data, key=lambda x: x[1])
@@ -5,6 +10,7 @@ def analyze_scores(students_data):
     passed = [(name, score) for name, score in students_data if score >= 70]
     failed = [(name, score) for name, score in students_data if score < 70]
     fail_count = len(failed)
+    sort_asc = sorted(students_data, key=lambda x: x[0])
 
     result = {
         'highest': highest_score,
@@ -12,7 +18,8 @@ def analyze_scores(students_data):
         'average': average,
         'passed': passed,
         'failed': failed,
-        'fail_count': fail_count
+        'fail_count': fail_count,
+        'Sorted': sort_asc
     }
     return result
 
@@ -22,18 +29,22 @@ num_students = int(input('How many are the new Students:	'))
 students = []
 
 for i in range(1, num_students + 1):
-    name = input(f"Enter the name of Student #{i}:  ")
-    clean_name = name.title()
+    while True:
+        name = input(f"Enter the name of Student #{i}:  ")
+        if is_valid_name(name):
+            clean_name = name.strip().title()
+            break
+        else:
+            print("Invalid name! Please avoid using special characters or numbers.")
+
     while True:
         try:
             score = float(input(f'Score:  '))
-            if 0 <= score <= 100:
+            if 1 <= score <= 100:
                 students.append((clean_name, score))
                 break
-            elif score < 0:
-                print("Score can't be negative")
             else:
-                print('Please enter a score between 0 and 100.')
+                print('Please enter a score between 1 and 100.')
         except ValueError:
             print('Invalid Input! Please enter a numeric value.')
 

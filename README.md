@@ -1,47 +1,65 @@
 # Student Grade Analyzer (SGA)
 
-This Python project collects student names and scores, then analyzes and displays:
-- Highest scorer
-- Lowest scorer
-- Average score
-- List of students who passed (score ≥ 70)
-- List of students who failed
-- Count of failed students
+## 📌 Overview
+The **Student Grade Analyzer (SGA)** is Rodrigo Toh's first major Python project focused on developing a CLI-based student management system. It allows users to input student names and scores, evaluate performance, sort data, and eventually manage student records using a simple CLI tool.
 
-## 💡 Features
+---
 
-- Clean input collection with validation
-- Organized logic using functions
-- Results presented using a readable dictionary
-- Uses Python concepts like:
-  - List comprehensions
-  - Lambda functions
-  - Dictionary returns
-  - Unpacking tuples
+## ✅ Current Features
 
-## 📂 Files
+- Input student names and validate formatting (excludes most special characters, allows names like O'Connor and Peña).
+- Accepts only numerical scores between **1 and 100**.
+- Filters students into **Passed** (score ≥ 75) and **Failed** categories.
+- Calculates **overall class average score**.
+- Identifies **highest and lowest scoring students**.
+- Displays results in clean, formatted outputs.
+- Supports **sorted output by name** (ascending).
 
-- `student_grade_analyzer.py` — Main program
-- `README.md` — Project description and guide
+---
 
-## 🧠 How It Works
+## 🛠️ In Progress
 
-1. User inputs the number of students.
-2. For each student:
-   - Input name and score.
-   - Score is validated to be a float between 0 and 100.
-3. The program analyzes the data:
-   - Uses `min()`, `max()`, `sum()` with `lambda` and comprehensions.
-4. Outputs summary with statistics and list of passed/failed students.
+### 🔹 Input Validation Fixes
+- Strengthened filtering of special characters in names.
+- Handled rare score loopholes like `-0`.
 
-## ✅ Requirements
+### 🔹 CLI Tool (Command-Line Interface)
+- Interactive menu for users to:
+  1. View all students
+  2. Add student
+  3. Edit student
+  4. Remove student
+  5. Sort student data
+  6. Exit
 
-- Python 3.x
+### 🔹 CRUD Operations
+- Functions to **Create**, **Read**, **Update**, and **Delete** student entries.
 
-## 🚀 How to Run
+---
 
-```bash
-python student_grade_analyzer.py
+## 🧪 Planned Features (v2: Multi-Score Version)
 
-👨‍💻 Author
-Rodrigo Toh (https://github.com/rodrigotoh019)
+- Each student will have **4 scores**: `1st Quarter`, `2nd Quarter`, `3rd Quarter`, and `4th Quarter`.
+- Compute **average per student**.
+- Integrate a **letter grading system** (A, B, C, D, F) based on averaged score.
+- Possible display of data using `tabulate` for clean table-like CLI output.
+
+---
+
+## 📂 GitHub Strategy
+
+- The current version remains in `main` branch.
+- A new development branch (e.g., `multi-score-version`) will be created for the upcoming v2 overhaul.
+- All major rewrites will be documented in future commits and README updates.
+
+---
+
+## 👨‍💻 Author
+
+**Rodrigo Toh**  
+- Future AI/ML Developer  
+- GitHub: [https://github.com/yourprofile](https://github.com/yourprofile)
+
+---
+
+> This project reflects Rodrigo's structured and deep learning process as he transitions from fundamentals to real-world Python applications. It's a living project that evolves as he grows.
